@@ -1,0 +1,7 @@
+<div id="Info_cont">
+  <img [src]='movie.imageUrl' [title]='movie.movieName' />
+  <figcaption>Title : <a [routerLink]="['/movies',movie.id]">{{movie.movieName}}</a></figcaption>
+  <p>Year : {{movie.year}}</p>
+  <p *ngIf="getUser()">Like : <span  class="fa fa-heart" [class.red]="movieAddedToFavorite()" (click)="favorite()"></span></p>
+      
+</div> 

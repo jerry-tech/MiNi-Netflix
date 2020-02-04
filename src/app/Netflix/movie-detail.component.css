@@ -1,0 +1,32 @@
+*{
+  background:rgba(0, 0, 0, 0.479);
+  font-family: monospace;
+  font-size: 16px;
+}
+body{
+  height: 800px;
+  width:100%;
+}
+
+.card-header{
+  background-color: rgb(209, 201, 201);
+  text-align: center;
+  text-transform: capitalize;
+}
+.card-body{
+  background: linear-gradient( to right, rgba(197, 8, 24, 0.691), black);
+  color:white;
+ }
+ .row{
+   color:white;
+ }
+ .card-footer>h1{
+   text-align: center;
+   color: white;
+   font-weight: bold;
+ }
+ @media screen and (max-width:600px){
+   body{
+     padding-top: 55px;
+   }
+ }

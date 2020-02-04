@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+
+<body style="background: rgba(0, 0, 0, 0.747); width:100%;">
+    
+    <br>
+    <br>
+
+    <main id="body_cont">
+
+        <div id="cont_right">
+            <a>Nollywood Movies</a>
+            <input [(ngModel)]='listFilter' type="text" placeholder="Search ......">
+        </div>
+        <div id="sub_body">
+            <aside id="Info_main" *ngFor='let movie of (filteredMovies ? filteredMovies.slice(0,5): [])'>
+                <app-movie-thumbnail [movie]='movie' (movieId)="addFavorite($event)"></app-movie-thumbnail>
+            </aside>
+
+        </div>
+    </main>
+    <br>
+    <br>
+    <main id="body_cont">
+        <div id="cont_right">
+            <a>Hollywood Movies</a>
+        </div>
+        <div id="sub_body">
+            <aside id="Info_main" *ngFor='let movie of (filteredMovies ? filteredMovies.slice(5,10): [])'>
+                <app-movie-thumbnail [movie]='movie' (movieId)="addFavorite($event)"></app-movie-thumbnail>
+            </aside>
+
+        </div>
+    </main>
+    <br>
+    <br>
+
+</body>

@@ -1,0 +1,9 @@
+.crop {
+    overflow: hidden;
+  }
+  div {
+    cursor: pointer;
+  }
+  #starrate>span{
+   color:rgb(202, 174, 16);
+  }

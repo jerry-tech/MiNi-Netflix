@@ -1,0 +1,21 @@
+
+<body style="background: rgba(0, 0, 0, 0.747); width:100%;">
+    <br>
+    <br>
+    <main id="body_cont">
+        <h2>Favorite Movies</h2><br>
+        <div id="sub_body">
+            <aside id="Info_main" *ngFor='let movie of (movieList ? movieList.slice(0,5): [])'>
+                <app-movie-thumbnail  [movie]='movie'></app-movie-thumbnail>
+            </aside>
+
+        </div>
+        <br>
+        <div id="sub_body">
+            <aside id="Info_main" *ngFor='let movie of (movieList ? movieList.slice(5,10): [])'>
+                <app-movie-thumbnail  [movie]='movie'></app-movie-thumbnail>
+            </aside>
+
+        </div>
+    </main>
+</body>

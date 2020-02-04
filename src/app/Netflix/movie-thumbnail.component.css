@@ -1,0 +1,33 @@
+#body_cont>h2
+{
+    margin-bottom: 2%;
+    padding-left:8%;
+}
+#sub_body{
+    display:flex;
+    background: linear-gradient( black, rgba(173, 8, 22, 0.452));
+    box-shadow: 2px 4px 2px rgb(153, 136, 136);  
+}
+.red {
+  color:red;
+}
+#Info_cont>figcaption
+{
+  font-weight: bold;
+  margin-top: 3%;
+}
+#Info_cont>img{
+  width:96%;
+  height:10%;
+}
+#Info_cont>p{
+    margin-top: 3%;
+    font-weight:  bold;
+}
+@media screen and (max-width:600px)
+{
+  #Info_cont>img{
+    width:50%;
+    height:40%;
+  }
+}

@@ -1,0 +1,25 @@
+
+<div id="content">
+  <br><br><br><br><br><br>
+ 
+  <form class="modal-content" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
+    <div class="imgcontainer">
+      NETFLIX
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <em
+        *ngIf='loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseOverLogin)'>Required</em>
+      <input type="text" placeholder="Enter Username" (ngModel)="userName" name="userName" required>
+
+      <label for="psw"><b>Password</b></label>
+      <em>Required</em>
+      <input type="password" placeholder="Enter Password" (ngModel)="password" name="password" required>
+
+      <span (mouseenter)="mouseOverLogin=true" (mouseleave)="mouseOverLogin=false"></span>
+      <button type="submit" [disabled]='loginForm.invalid'>Login</button>
+
+    </div>
+  </form>
+</div>
