@@ -25,13 +25,13 @@
             <i id="close" class="fa fa-close" onclick="document.getElementById('main_nav').style.display='none'"></i>
             <a class="logo">NETFLIX</a>
             <a id="second" routerLinkActive='active' onclick="document.getElementById('main_nav').style.display='none'" [routerLink]="['/Home']">Home</a>
-            <a id="second" *ngIf="!resultsess()" title="please login to see Favorites">Favorites</a>
-            <a id="second" onclick="document.getElementById('main_nav').style.display='none'" *ngIf="resultsess()" routerLinkActive='active'
+            <a id="second" *ngIf="!auth.getUser()" title="please login to see Favorites">Favorites</a>
+            <a id="second" onclick="document.getElementById('main_nav').style.display='none'" *ngIf="auth.getUser()" routerLinkActive='active'
                 [routerLink]="['/Favorites']">Favorites</a>
             <!-- comes up when max width is 600px -->
-            <a id="log_det" onclick="document.getElementById('main_nav').style.display='none'" *ngIf="resultsess() || auth.isAuthenticated()" (click)='logout()' style="color:white;background:red;font-size:20px;border-radius:50px;padding:6px 25px;font-weight: bold;" routerLinkActive='active'>{{user}}</a>
+            <a id="log_det" onclick="document.getElementById('main_nav').style.display='none'" *ngIf="auth.getUser()" (click)='logout()' style="color:white;background:red;font-size:20px;border-radius:50px;padding:6px 25px;font-weight: bold;" routerLinkActive='active'>{{this.auth.getUser()}}</a>
 
-            <a  id="second" onclick="document.getElementById('main_nav').style.display='none'" *ngIf="!resultsess()" routerLinkActive='active' [routerLink]="['/Login']">Login</a>
+            <a  id="second" onclick="document.getElementById('main_nav').style.display='none'" *ngIf="!auth.getUser()" routerLinkActive='active' [routerLink]="['/Login']">Login</a>
 
 
         </main>
@@ -41,13 +41,13 @@
             <a class="tite">NETFLIX</a>
 
             <a class="active" style="font-size: 20px;" routerLinkActive='active' [routerLink]="['/Home']">Home</a>
-            <a class="active" style="font-size: 20px;" *ngIf="!resultsess()" title="please login to see Favorites">Favorites</a>
-            <a  class="active" *ngIf="resultsess()" routerLinkActive='active'
+            <a class="active" style="font-size: 20px;" *ngIf="!auth.getUser()" title="please login to see Favorites">Favorites</a>
+            <a  class="active" *ngIf="auth.getUser()" routerLinkActive='active'
             [routerLink]="['/Favorites']">Favorites</a>
             <div class="search-container">
                
-                <button  *ngIf="resultsess() || auth.isAuthenticated()"  style="color:white;background:red;font-size:20px;border-radius:50px;padding:6px 25px;font-weight: bold;" routerLinkActive='active'  (click)='logout()' type="submit">{{this.user}}</button>
-                <button *ngIf="!resultsess()"  routerLinkActive='active' [routerLink]="['/Login']" type="submit">Login</button>
+                <button  *ngIf="auth.getUser()"  style="color:white;background:red;font-size:20px;border-radius:50px;padding:6px 25px;font-weight: bold;" routerLinkActive='active'  (click)='logout()' type="submit">{{this.auth.getUser()}}</button>
+                <button *ngIf="!auth.getUser()"  routerLinkActive='active' [routerLink]="['/Login']" type="submit">Login</button>
               
             </div>
 

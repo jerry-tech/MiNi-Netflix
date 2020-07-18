@@ -14,8 +14,7 @@ export class MoviesInfoComponent implements OnInit {
   iconColor: string;
   // movies: any[];
   _listFilter: string;
-
- 
+  
 
   get listFilter(): string {
     return this._listFilter;

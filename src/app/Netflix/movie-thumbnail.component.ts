@@ -31,6 +31,8 @@ export class MovieThumbnailComponent implements OnInit {
   }
 
 
+
+
   ngOnInit() {
     this.user = sessionStorage.getItem('User');
     

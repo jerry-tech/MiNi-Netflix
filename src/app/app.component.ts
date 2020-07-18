@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './Netflix/user/auth.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,23 +12,25 @@ export class AppComponent implements OnInit {
   title = 'AlcProject';
   user : string;
   sessdata : string;
-  constructor(public auth: AuthService,private router: Router){}
+  myUser: BehaviorSubject<string>;
+  jj: any;
+  constructor(public auth: AuthService,private router: Router){
+    this.myUser = new BehaviorSubject(sessionStorage.getItem('User'));
+    this.jj = this.myUser.asObservable();
+  }
 
   ngOnInit(){
-    if(sessionStorage.getItem !== null)
-    {
-     this.user = sessionStorage.getItem('User');
-      // console.log(this.user);
-    }
     
   }
 
-  resultsess(){
-      return !!this.user
+  getUser() {
+    return this.myUser.value;
   }
-  logout(val){
+
+  logout(){
     sessionStorage.removeItem('fav');
     sessionStorage.removeItem('User');
+    this.auth.myUser.next(null);
 
     location.reload(true);
     confirm("Are Sure You Want to Log Out ?")

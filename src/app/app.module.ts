@@ -11,7 +11,7 @@ import { LoginComponent } from './Netflix/user/login.component';
 import { MovieFavoriteComponent } from './Netflix/movie-favorite.component';
 import { MovieThumbnailComponent } from './Netflix/movie-thumbnail.component';
 import { StarComponent } from './Netflix/shared/star.component';
-
+import { AuthGuard } from './app.guard';
 
 
 
@@ -23,7 +23,8 @@ import { StarComponent } from './Netflix/shared/star.component';
     LoginComponent,
     MovieFavoriteComponent,
     MovieThumbnailComponent,
-    StarComponent
+    StarComponent,
+
   ],
   imports: [
     BrowserModule, 
@@ -34,7 +35,7 @@ import { StarComponent } from './Netflix/shared/star.component';
       {path: 'Welcome', component:AppComponent},
       {path: 'Login', component:LoginComponent},
       {path: 'Home', component: MoviesInfoComponent},
-      {path: 'Favorites', component: MovieFavoriteComponent},
+      {path: 'Favorites', canActivate: [ AuthGuard ], component: MovieFavoriteComponent},
       {path: 'movies/:id',
        canActivate: [ MovieDetailGuard ],
        component: MovieDetailComponent,

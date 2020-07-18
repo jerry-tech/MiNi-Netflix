@@ -1,6 +1,6 @@
 import { IUser } from './user.model';
 import { Injectable } from '@angular/core';
-import { getTypeNameForDebugging } from '@angular/core/src/change_detection/differs/iterable_differs';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -11,9 +11,16 @@ export class AuthService {
   user: any;
   value: string;
   firstlet: string;
-  seclet:string;
-  redirectUrl:string;
-   rest:string; 
+  seclet: string;
+  redirectUrl: string;
+  rest: string;
+  myUser: BehaviorSubject<any>;
+  jj: any;
+
+  constructor() {
+    this.myUser = new BehaviorSubject(sessionStorage.getItem('User'));
+    this.jj = this.myUser.asObservable();
+  }
 
   loginUser(userName: string, password: string) {
     this.currentUser = {
@@ -22,15 +29,12 @@ export class AuthService {
       password: password,
       favorite: []
     };
-   
-    this.firstlet = userName.charAt(0).toUpperCase();
-    this.seclet = userName.charAt(1).toUpperCase();
-    this.value = this.firstlet + this.seclet;
-    
-    
-      sessionStorage.setItem('User', this.value);
+
   }
 
+  getUser() {
+    return this.myUser.value;
+  }
 
   isAuthenticated() {
     return !!this.currentUser;
